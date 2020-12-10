@@ -1,0 +1,19 @@
+# fly.toml file generated for smokescreen-example on 2020-12-10T15:52:34-07:00
+
+app = "smokescreen-example"
+
+
+[[services]]
+internal_port = 4750
+protocol      = "tcp"
+
+  [services.concurrency]
+  hard_limit = 25
+  soft_limit = 20
+
+  [[services.ports]]
+  port = "10000"
+
+  [[services.tcp_checks]]
+  interval = 10000
+  timeout  = 2000
