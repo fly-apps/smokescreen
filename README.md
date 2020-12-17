@@ -2,7 +2,7 @@
 
 Managing your outgoing web connections from Fly with Smokescreen
 
-<!-- cut here-->
+<!---- cut here --->
 
 ## Rationale
 
