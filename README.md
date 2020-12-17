@@ -1,6 +1,6 @@
 # Smokescreen
 
-Obfuscating and managing your outgoing web connections from Fly with Smokescreen
+Managing your outgoing web connections from Fly with Smokescreen
 
 <!-- cut here-->
 
