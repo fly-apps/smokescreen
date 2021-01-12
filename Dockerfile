@@ -1,11 +1,13 @@
-FROM golang
+FROM golang as builder
 
-RUN go get github.com/stripe/smokescreen
+WORKDIR /go/src/app
+COPY . .
 
-RUN echo $GOPATH/bin/smokescreen
+RUN go build .
 
 FROM ubuntu:18.04
 
-COPY --from=0 /go/bin/smokescreen /usr/local/bin/smokescreen
+COPY --from=builder /go/src/app/smokescreen /usr/local/bin/smokescreen
+COPY acl.yaml /etc/smokescreen/acl.yaml
 
-CMD ["smokescreen"]
+CMD ["smokescreen", "--egress-acl-file", "/etc/smokescreen/acl.yaml"]

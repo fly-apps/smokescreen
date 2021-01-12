@@ -1,0 +1,12 @@
+
+---
+version: v1
+services:
+  - name: authed
+    project: users
+    action: report
+
+
+default:
+    project: other
+    action: enforce
