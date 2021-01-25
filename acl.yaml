@@ -6,7 +6,9 @@ services:
     project: users
     action: report
 
-
 default:
     project: other
     action: enforce
+
+global_deny_list:
+  - "*.internal"
