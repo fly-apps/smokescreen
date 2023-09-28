@@ -5,7 +5,7 @@ COPY . .
 
 RUN go build .
 
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 COPY --from=builder /go/src/app/smokescreen /usr/local/bin/smokescreen
 COPY acl.yaml /etc/smokescreen/acl.yaml
