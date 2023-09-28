@@ -26,7 +26,9 @@ func main() {
 		fmt.Println("missing environment variable: PROXY_PASSWORD")
 		os.Exit(1)
 	}
-
+	conf.RejectResponseHandler = func(resp *http.Response) {
+		resp.Header.Set("Proxy-Authenticate", "Basic realm=\"smokescreen\"")
+	}
 	conf.RoleFromRequest = func(request *http.Request) (string, error) {
 		fail := func(err string) (string, error) { return "", fmt.Errorf(err) }
 
